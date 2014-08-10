@@ -4,7 +4,9 @@ AngularFire 0.8 has come out and there are significant changes to the API that T
 #Changes I made:
 
 from
+
 scripts/services/post.js
+
         app.factory('Post',
           function ($firebase, FIREBASE_URL) {
             var ref = new Firebase(FIREBASE_URL + 'posts');
@@ -35,7 +37,9 @@ to
 I loaded into an array at beginning but that defeats the purpose of 3 way binding so I will try to change it to an object in the future and use $bindTo.
 
 from
+
 scripts/controllers/postview.js
+
         app.controller('PostViewCtrl', function ($scope, $routeParams, Post) {
 
           $scope.post = Post.find($routeParams.postId);
