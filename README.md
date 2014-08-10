@@ -47,6 +47,7 @@ scripts/controllers/postview.js
         });
 
 to
+
         app.controller('PostViewCtrl', function ($scope, $routeParams, Post) {
           //console.log($scope.posts);
           $scope.post = Post[$routeParams.postId];
