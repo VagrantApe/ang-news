@@ -14,6 +14,7 @@ scripts/services/post.js
             var posts = $firebase(ref);
           });
 to
+
         app.factory('Post',
           function($firebase, FIREBASE_URL){
             var ref = new Firebase(FIREBASE_URL + 'posts');
