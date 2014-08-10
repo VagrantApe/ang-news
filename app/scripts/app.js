@@ -1,3 +1,4 @@
+/* global app:true */
 'use strict';
 
 /**
@@ -8,20 +9,17 @@
  *
  * Main module of the application.
  */
-angular
-  .module('angNewsApp', [
-    'ngAnimate',
+var app = angular.module('angNewsApp', [
     'ngCookies',
     'ngResource',
     'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
+    'ngSanitize'
+  ]);
+  app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/posts.html',
+        controller: 'PostsCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
