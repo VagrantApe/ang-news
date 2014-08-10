@@ -13,7 +13,8 @@ var app = angular.module('angNewsApp', [
     'ngCookies',
     'ngResource',
     'ngRoute',
-    'ngSanitize'
+    'ngSanitize',
+    'firebase'
   ]);
   app.config(function ($routeProvider) {
     $routeProvider
@@ -21,11 +22,12 @@ var app = angular.module('angNewsApp', [
         templateUrl: 'views/posts.html',
         controller: 'PostsCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/posts/:postId', {
+        templateUrl: 'views/showpost.html',
+        controller: 'PostViewCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
   });
+  app.constant('FIREBASE_URL', 'https://fiery-fire-5372.firebaseio.com/');
