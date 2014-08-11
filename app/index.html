@@ -21,18 +21,9 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-        </ul>
-        <h3 class="text-muted">angNews</h3>
-      </div>
 
-      <div ng-view=""></div>
-
-    </div>
-
+    <div ng-include="'views/nav.html'"></div>
+    <div class='container' ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -75,6 +66,8 @@
         <script src="scripts/controllers/posts.js"></script>
         <script src="scripts/controllers/postview.js"></script>
         <script src="scripts/services/post.js"></script>
+        <script src="scripts/controllers/nav.js"></script>
+        <script src="scripts/filters/url.js"></script>
         <!-- endbuild -->
 </body>
 </html>
