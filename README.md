@@ -58,7 +58,7 @@ to
           $scope.post = Post[$routeParams.postId];
         });
 
-I was sick of tabbing past the http:// so I concatenated it on submit to the $scope.post.url on submit. I also thought changing the location seemed wrong so I removed it so I needed to reset the fields to ''.
+I was sick of tabbing past the http:// so I concatenated it on submit to the $scope.post.url on submit. I also thought changing the location seemed wrong so I removed it and needed to reset the fields to ''.
 
 scripts/controllers/posts.js
 
