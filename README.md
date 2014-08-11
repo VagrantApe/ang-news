@@ -7,12 +7,27 @@ scripts/services/post.js
 
 from
 
-        app.factory('Post',
-          function ($firebase, FIREBASE_URL) {
-            var ref = new Firebase(FIREBASE_URL + 'posts');
+        function ($firebase, FIREBASE_URL) {
+          var ref = new Firebase(FIREBASE_URL + posts);
 
-            var posts = $firebase(ref);
-          });
+          var posts = $firebase(ref);
+
+          var Post = {
+            all: posts,
+            create: function (post) {
+              return posts.$add(post);
+            },
+            find: function (postId) {
+              return posts.$child(postId);
+            },
+            delete: function (postId) {
+              return posts.$remove(postId);
+            }
+          };
+
+          return Post;
+        }
+
 to
 
         app.factory('Post',
@@ -21,22 +36,10 @@ to
 
             var posts = $firebase(ref).$asArray();
 
-            /*var Post={
-              all: posts,
-              create: function(post){
-                return posts.$add(post);
-              },
-              find: function(postId){
-                return posts.$keyAt(postId);
-              },
-              delete: function(postId){
-                return posts.$remove(postId);
-              }
-            };*/
             return posts;
         });
 
-I loaded into an array at beginning but that defeats the purpose of 3 way binding so I will try to change it to an object in the future and use $bindTo.
+I removed the methods on Post object because the array object has methods that I call directly on submit and delete and the array is returned so no need for all. I loaded into an array at beginning but that defeats the purpose of 3 way binding so I will try to change it to an object in the future and use $bindTo.
 
 scripts/controllers/postview.js
 
@@ -55,7 +58,7 @@ to
           $scope.post = Post[$routeParams.postId];
         });
 
-I was sick of tabbing past the http:// so I concatenated it on submit to the $scope.post.url on submit. I also thought changing the location seemed wrong so I removed it.
+I was sick of tabbing past the http:// so I concatenated it on submit to the $scope.post.url on submit. I also thought changing the location seemed wrong so I removed it so I needed to reset the fields to ''.
 
 scripts/controllers/posts.js
 
