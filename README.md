@@ -1,7 +1,7 @@
 ##Thinkster.io Angular Tutorial
 
 AngularFire 0.8 has come out and there are significant changes to the API that Thinkster hasn't modified in the tutorial.
-#Changes I made:
+###Changes I made:
 
 scripts/services/post.js
 
