@@ -60,6 +60,7 @@ I was sick of tabbing past the http:// so I concatenated it on submit to the $sc
 scripts/controllers/posts.js
 
 from
+
         app.controller('PostsCtrl', function ($scope, $location, Post) {
             $scope.posts = Post.all;
 
